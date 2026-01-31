@@ -1,0 +1,34 @@
+"""
+Clean and Normalize Name Data
+
+Standardizes personal names by removing extra spaces
+and applying consistent capitalization.
+"""
+
+names = [
+    "john doe",
+    "MARY SMITH",
+    "robert  jones  ",
+    "aNnA mArIa",
+    "   tom   brown"
+]
+
+def clean_name(full_name: str) -> str:
+    """
+    Normalize a full name:
+    - Remove extra spaces
+    - Capitalize each name part
+    """
+    parts = full_name.strip().split()
+    return " ".join(part.capitalize() for part in parts)
+
+print("CLEANING NAMES")
+print("-" * 20)
+
+cleaned_names = []
+for name in names:
+    cleaned = clean_name(name)
+    cleaned_names.append(cleaned)
+    print(f"{name:22} -> {cleaned}")
+
+print(f"\nProcessed {len(cleaned_names)} records")
